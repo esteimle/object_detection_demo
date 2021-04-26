@@ -1,0 +1,26 @@
+<annotation>
+	<folder>New folder</folder>
+	<filename>IMG_20201207_174550.jpg</filename>
+	<path>D:\training_data\X2\New folder\IMG_20201207_174550.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>3024</width>
+		<height>3024</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>x2</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>849</xmin>
+			<ymin>297</ymin>
+			<xmax>1840</xmax>
+			<ymax>1051</ymax>
+		</bndbox>
+	</object>
+</annotation>
