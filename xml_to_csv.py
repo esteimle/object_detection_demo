@@ -15,11 +15,14 @@ import xml.etree.ElementTree as ET
 import re
 
 
-def not_negative(num):
+def bound(num, maxVal):
     if(num < 0):
         return 0
+    elif(num > maxVal):
+        return maxVal
     else:
         return num
+    
 
 
 
@@ -48,15 +51,17 @@ def xml_to_csv(path):
             except:
                 name = root.find("filename").text
                 pass  # val does not exist at all
+            xsize =int(root.find("size")[0].text)
+            ysize = int(root.find("size")[1].text)
             value = (
                 name,
-                int(root.find("size")[0].text),
-                int(root.find("size")[1].text),
+                xsize,
+                ysize,
                 member[0].text.lower(),
-                not_negative(int(member.find("bndbox")[0].text)),
-                not_negative(int(member.find("bndbox")[1].text)),
-                not_negative(int(member.find("bndbox")[2].text)),
-                not_negative(int(member.find("bndbox")[3].text)),
+                bound(int(member.find("bndbox")[0].text), xsize),
+                bound(int(member.find("bndbox")[1].text), xsize),
+                bound(int(member.find("bndbox")[2].text), ysize),
+                bound(int(member.find("bndbox")[3].text), ysize),
             )
             xml_list.append(value)
     column_name = [
