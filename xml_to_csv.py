@@ -12,6 +12,7 @@ import glob
 import pandas as pd
 import argparse
 import xml.etree.ElementTree as ET
+import re
 
 
 def xml_to_csv(path):
@@ -33,13 +34,17 @@ def xml_to_csv(path):
         root = tree.getroot()
         for member in root.findall("object"):
             classes_names.append(member[0].text)
-
-            name = os.path.splitext(root.find("filename").text)[0] + '.jpg'
+            try:
+                res = re.findall("frame_[0-9]*", root.find("filename").text)
+                name = res[0] + ".jpg"
+            except:
+                name = root.find("filename").text
+                pass  # val does not exist at all
             value = (
                 name,
                 int(root.find("size")[0].text),
                 int(root.find("size")[1].text),
-                member[0].text,
+                member[0].text.lower(),
                 int(member.find("bndbox")[0].text),
                 int(member.find("bndbox")[1].text),
                 int(member.find("bndbox")[2].text),
