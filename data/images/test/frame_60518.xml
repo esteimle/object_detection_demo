@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<annotation>
+  <folder />
+  <filename>frame_60518_bounds.xml</filename>
+  <path>test</path>
+  <source>
+    <database>X2</database>
+  </source>
+  <size>
+    <width>530</width>
+    <height>530</height>
+    <depth>3</depth>
+  </size>
+  <segmented>0</segmented>
+  <object>
+    <name>X2</name>
+    <pose>Unspecified</pose>
+    <truncated>0</truncated>
+    <difficult>0</difficult>
+    <occluded>0</occluded>
+    <bndbox>
+      <xmin>61</xmin>
+      <xmax>158</xmax>
+      <ymin>73</ymin>
+      <ymax>125</ymax>
+    </bndbox>
+  </object>
+</annotation>
