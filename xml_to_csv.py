@@ -58,10 +58,11 @@ def xml_to_csv(path):
                 xsize,
                 ysize,
                 member[0].text.lower(),
-                bound(int(member.find("bndbox")[0].text), xsize),
-                bound(int(member.find("bndbox")[1].text), xsize),
-                bound(int(member.find("bndbox")[2].text), ysize),
-                bound(int(member.find("bndbox")[3].text), ysize),
+                #xmin   ymin    xmax    ymax
+                bound(int(member.find("bndbox").find("xmin").text), xsize),
+                bound(int(member.find("bndbox").find("ymin").text), xsize),
+                bound(int(member.find("bndbox").find("xmax").text), ysize),
+                bound(int(member.find("bndbox").find("ymax").text), ysize),
             )
             xml_list.append(value)
     column_name = [
