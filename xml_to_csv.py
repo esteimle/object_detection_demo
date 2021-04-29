@@ -22,7 +22,7 @@ def bound(num, maxVal):
         return maxVal
     else:
         return num
-    
+
 
 
 
@@ -77,6 +77,9 @@ def xml_to_csv(path):
     xml_df = pd.DataFrame(xml_list, columns=column_name)
     classes_names = list(set(classes_names))
     classes_names.sort()
+    classes_names = [each_string.lower() for each_string in classes_names]
+    classes_names = list(dict.fromkeys(classes_names))
+
     return xml_df, classes_names
 
 
